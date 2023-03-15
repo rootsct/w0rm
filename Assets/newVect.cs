@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class newVect : MonoBehaviour
-{
+public class newVect : MonoBehaviour {
     public float moveSpeed = 2;
 
     void Start() {
@@ -18,4 +17,9 @@ public class newVect : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D col) {
+        if (col.gameObject.CompareTag("spawnedfood")) {
+            Destroy(col.gameObject);
+        }
+    }
 }

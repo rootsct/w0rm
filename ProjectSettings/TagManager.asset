@@ -11,6 +11,9 @@ TagManager:
   - troll
   - mainCthulhu
   - newVect
+  - spawnedfood
+  - hunter
+  - newVect2
   layers:
   - Default
   - TransparentFX

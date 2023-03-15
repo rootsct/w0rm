@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bird : MonoBehaviour
+public class maincthulhu : MonoBehaviour
 {
-    public float moveSpeed = 2;
+    public float moveSpeed = 0.6f;
     private Transform player;
     private float timeRemaining = 0f;
 
@@ -17,10 +17,14 @@ public class bird : MonoBehaviour
 
         if (timeRemaining <= 0) {
             moveSpeed++;
-            timeRemaining = 20f;
+            timeRemaining = 40f;
         }
-
         Vector3 direction = (player.position - transform.position).normalized;
-        transform.position += direction * moveSpeed * Time.deltaTime;
+        transform.position += moveSpeed * Time.deltaTime * direction;
+    }
+    private void OnCollisionEnter2D(Collision2D col) {
+        if (col.gameObject.CompareTag("spawnedfood")) {
+            Destroy(col.gameObject);
+        }
     }
 }
